@@ -6,16 +6,34 @@
     --brand-light: #fdf2f0;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    color: var(--brand-dark);
-}
 
 /* Tipografías */
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&display=swap');
 
-.font-display {
+@font-face {
+    font-family: "ZingRust" ;
+    src: url("fonts/ZingRustDemo-Base.otf");
+}
+@font-face {
+    font-family: "ZingRustD2" ;
+    src: url("fonts/ZingRustD2Demo-Base.otf");
+}
+
+body {
     font-family: 'Barlow', sans-serif;
+    color: var(--brand-dark);
+}
+.font-hero{
+    font-family: "ZingRust";
+}
+.font-display {
+    font-family: "Barlow";
+    font-weight: bold;
+}
+.font-display-condensed {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: bold;
 }
 
 /* Colores Personalizados */
@@ -24,6 +42,7 @@ body {
 .bg-brand-accent { background-color: var(--brand-accent) !important; }
 .bg-brand-light { background-color: var(--brand-light) !important; }
 
+/* color textos personalizados */
 .text-brand-dark { color: var(--brand-dark) !important; }
 .text-brand-primary { color: var(--brand-primary) !important; }
 .text-brand-accent { color: var(--brand-accent) !important; }
@@ -61,7 +80,7 @@ body {
     font-weight: 500;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 1.2rem;
 }
 .nav-link:hover, .nav-link.active {
     color: var(--brand-accent) !important;
@@ -69,11 +88,11 @@ body {
 
 /* Hero Section */
 .hero-image {
-    max-height: 550px;
+    max-height: 650px;
     z-index: 10;
     position: relative;
     /* Rotation animation on load */
-    animation: float 6s ease-in-out infinite;
+    animation: float 7s ease-in-out infinite;
 }
 
 .blob-bg {
