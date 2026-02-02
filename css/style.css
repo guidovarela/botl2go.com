@@ -3,6 +3,7 @@
     --brand-dark: #134e5e;
     --brand-primary: #3da5a5;
     --brand-accent: #f08a78;
+    --brand-accent-dark: #9b6960;
     --brand-light: #fdf2f0;
 }
 
@@ -46,6 +47,7 @@ body {
 .text-brand-dark { color: var(--brand-dark) !important; }
 .text-brand-primary { color: var(--brand-primary) !important; }
 .text-brand-accent { color: var(--brand-accent) !important; }
+.text-brand-accent-dark { color: var(--brand-accent-dark) !important; }
 .text-light-opacity { color: rgba(255, 255, 255, 0.8); }
 
 .fill-brand-primary { fill: var(--brand-primary); }
