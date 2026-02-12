@@ -87,3 +87,12 @@ function resetForm() {
     contactForm.classList.remove('d-none');
     successMessage.classList.add('d-none');
 }
+
+// Flip Card - Productos
+const flipCards = document.querySelectorAll('.flip-card-container');
+flipCards.forEach(card => {
+    card.addEventListener('click', function() {
+        const inner = this.querySelector('.flip-card-inner');
+        inner.classList.toggle('flipped');
+    });
+});
