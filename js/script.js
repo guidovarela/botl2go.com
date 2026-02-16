@@ -95,4 +95,9 @@ flipCards.forEach(card => {
         const inner = this.querySelector('.flip-card-inner');
         inner.classList.toggle('flipped');
     });
+
+
+
+
+
 });
