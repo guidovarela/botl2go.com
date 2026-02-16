@@ -106,8 +106,9 @@
             transform: translateY(-85%) scale(0.85); 
         }
         
-        .carousel-item-custom.prev .slide-title {
+        .carousel-item-custom.prev .slide-text-box {
             color: var(--text-faded); /* Fade title */
+            opacity: 0; /* Hide description */
         }
         .carousel-item-custom.prev .slide-desc {
             opacity: 0; /* Hide description */
@@ -131,7 +132,7 @@
         .carousel-item-custom.next .slide-title {
             color: var(--text-faded);
         }
-        .carousel-item-custom.next .slide-desc {
+        .carousel-item-custom.next .slide-text-box {
             opacity: 0;
             height: 0;
         }
