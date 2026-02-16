@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&display=swap');
 
+/* carousel Seccion Nuestras Líneas */
+@import url('carousel_lineas.css');
+
 @font-face {
     font-family: "ZingRust" ;
     src: url("fonts/ZingRustDemo-Base.otf");
@@ -64,9 +67,20 @@ body {
     color: white;
     transition: all 0.3s ease;
 }
-.btn-brand-accent:hover {
+.btn-brand-accent:hover,.btn-brand-accent:active {
     background-color: #e0705d;
     border-color: #e0705d;
+    color: white;
+    transform: translateY(-2px);
+}
+.btn-brand-dark {
+    background-color: var(--brand-dark);
+    border-color: var(--brand-dark);
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-brand-dark:hover,.btn-brand-dark:active{
+    background-blend-mode: soft-light;
     color: white;
     transform: translateY(-2px);
 }
@@ -162,7 +176,6 @@ body {
 }
 
 /* Flip Cards */
-/* Flip Cards */
 .flip-card-container {
     background-color: transparent;
     height: 380px;
@@ -216,12 +229,13 @@ body {
 
 
 
-/* Product Line Selector */
+/* Lineas Productos - Selector */
 .glass-panel {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
 }
 
 #productLineSelector .btn.active {
@@ -238,6 +252,11 @@ body {
 .pulse-animation {
     animation: pulse 3s infinite;
 }
+#linesSection{
+    height: 70vh;
+    padding-bottom: 6em !important;
+}
+
 
 /* Footer Socials */
 .social-icon-btn {

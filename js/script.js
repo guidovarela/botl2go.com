@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // 1. Product Lines Selector Logic
@@ -95,9 +97,6 @@ flipCards.forEach(card => {
         const inner = this.querySelector('.flip-card-inner');
         inner.classList.toggle('flipped');
     });
-
-
-
 
 
 });

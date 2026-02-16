@@ -44,7 +44,7 @@
                         <a class="nav-link" href="#productos">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#lineas">Líneas</a>
+                        <a class="nav-link" href="#linesSection">Líneas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#uso">Cómo usar</a>
@@ -107,7 +107,7 @@
 
     
 
-    <section id="productos" class="pt-5 bg-brand-primary position-relative">
+    <section id="productos" class="py-5 bg-brand-primary position-relative">
         <div class="container py-5">
             <div class="text-center mb-5 text-white animate-on-scroll">
                 <h2 class="d-none">
@@ -232,85 +232,45 @@
 
     <!-- 4. Líneas de Producto -->
 
-    <section id="lineas" class="pb-5 bg-brand-primary ">
-        <div class="container py-5">
-            <div class="p-5 rounded-4 animate-on-scroll">
-                <h2 class="text-white text-center font-display-condensed text-uppercase display-2 text-brand-dark mb-5">Nuesta líneas</h2>
-                <h3 class="d-none">Botellas y vasos térmicos BOTL2GO</h3>
-                <div class="row">
-                    
-                    <div class="col-2">
-                        <!-- Selector -->
-                        <div class="d-flex flex-column flex-wrap justify-content-center gap-3 mb-5" id="productLineSelector">
-                            <button class="btn btn-outline-light rounded-pill px-4 py-2 fs-5 font-display active" data-target="flow">
-                                FLOWgo
-                            </button>
-                            <button class="btn btn-outline-light rounded-pill px-4 py-2 fs-5 font-display" data-target="mag">
-                                MAGgo
-                            </button>
-                            <button class="btn btn-outline-light rounded-pill px-4 py-2 fs-5 font-display" data-target="mini">
-                                MINIgo
-                            </button>
+    <section class="lines-section pt-5 bg-brand-primary" id="linesSection">
+        <div class="container position-relative z-2 mb-5 glass-panel animate-on-scroll">
+            <div class="row align-items-center">
+                
+                <!-- Left Side: Static Text -->
+                <div class="col-lg-5 content-left">
+                    <h2 class="main-title text-brand-dark text-uppercase font-display-condensed fw-bold display-1 mb-4 lh-1">
+                        NUESTRAS<br>LÍNEAS
+                    </h2>
+                    <p class="fs-4">
+                        Botellas y vasos diseñados para acompañar tu día.
+                    </p>
+                    <a class="btn btn-brand-dark btn-lg rounded-pill px-5 fs-2 fw-bold shadow-sm hover-scale text-uppercase font-display-condensed" href="https://botl2go.mitiendanube.com/productos/" target="_blank">
+                        IR A LA TIENDA
+                    </a>
+                </div>
+
+                <!-- Right Side: Vertical Carousel -->
+                <div class="col-lg-7">
+                    <div class="carousel-wrapper">
+                        <!-- Controls -->
+                        <div class="nav-arrow nav-up text-brand-primary" id="btnUp">
+                            <i class="bi bi-chevron-up text-brand-dark display-3"></i>
                         </div>
-                    </div>
-                    <div class="col-10">
-                        <!-- Content Area -->
-                        <div id="productLineContent" class="transition-content rounded-4 p-4 p-md-5 glass-panel">
-
-                            <div class="content-item active text-white" id="content-flow">
-                            <div class="row">
-                                <div class="col-7">
-                                    <div class="logo-img">
-                                        <img src="img/logo_flowgo_white.png" class="w-50" alt="">
-                                    </div>
-                                    <p class="fs-3 opacity-90 mb-4 text-left "><span class="fw-bold">Diseño fluido para hidratarte <br> todo el día.</span> <br> Pensadas para acompañar tu rutina diaria, donde estés.
-                                </p>
-                            </div>
-                            <div class="col-5">
-                                <img src="img/flowgo_01.png" alt="Botella térmica Botl2go modelo FLOWgo mostrando diseño y tapa" class="rounded-circle border border-4 border-white shadow-lg img-fluid pulse-animation w-100" >
-                            </div>
+                        <div class="nav-arrow nav-down text-brand-primary" id="btnDown">
+                            <i class="bi bi-chevron-down text-brand-dark display-3"></i>
                         </div>
-                    
-                    </div>
 
-                    <div class="content-item d-none" id="content-mag">
-
-                        <div class="row">
-                            <div class="col-7">
-                                <div class="logo-img">
-                                    <img src="img/logo_maggo_white.png" class="w-50" alt="">
-                                </div>
-                                <p class="fs-3 opacity-90 mb-4 text-left text-white "><span class="fw-bold">Más capacidad para seguir tu ritmo</span> <br> Ideales para jornadas largas, entrenamiento y movimiento continuo.</p>
-                            </div>
-                            <div class="col-5">
-                                <img src="img/maggo_01.png" alt="Botella térmica Botl2go modelo MAGgo con acabado metálico"  class="rounded-circle border border-4 border-white shadow-lg img-fluid pulse-animation w-100">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content-item d-none" id="content-mini">
-                        
-                        <div class="row">
-                            <div class="col-7">
-                                <div class="logo-img">
-                                    <img src="img/logo_minigo_white.png" class="w-50" alt="">
-                                </div>
-                                <p class="fs-3 opacity-90 mb-4 text-left text-white "><span class="fw-bold">Momentos compartidos, sin descartables</span> <br> Vasos reutilizables para reuniones, encuentros y aire libre.</p>
-                            </div>
-                            <div class="col-5">
-                                <img src="img/minigo_01.png" alt="Botella térmica Botl2go modelo MINIgo para uso diario" class="rounded-circle border border-4 border-white shadow-lg img-fluid pulse-animation w-100">
-                            </div>
+                        <!-- Track -->
+                        <div class="carousel-track" id="track">
+                            <!-- Items Injected via JS -->
                         </div>
                     </div>
                 </div>
-
-                    </div>
-                </div>
-
 
             </div>
         </div>
     </section>
+
 
 
     <!-- 5. Cómo usar -->
@@ -548,9 +508,9 @@
     <script src="js/schema.js" type="application/ld+json"></script>
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="js/script.js"></script>
     <!-- vertical carousel -->
     <script src="js/verticalCarousel.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
 </body>
 </html>

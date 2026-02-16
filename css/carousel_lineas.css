@@ -1,0 +1,183 @@
+        /* --- Vertical Carousel Styles --- */
+        .carousel-wrapper {
+            position: relative;
+            height: 60vh; /* Fixed height container */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .nav-arrow {
+            position: absolute;
+            right: 0%; /* Center horizontally relative to carousel */
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            z-index: 50;
+            transition: all 0.3s;
+        }
+        .nav-arrow:hover { color: white; transform: translateX(-50%) scale(1.2); }
+        .nav-up { top: 0; }
+        .nav-down { bottom: 0; }
+
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+        }
+
+        .carousel-item-custom {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Inner Layout of a Slide: Image + Text */
+        .slide-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            /*max-width: ;  Control width of the combo */
+        }
+
+        .slide-image-box {
+            position: relative;
+            flex-shrink: 0;
+            box-shadow: 0 0 rgba(0,0,0,0.3);
+            transition: transform 0.6s;
+            }
+            .slide-img {
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+        .slide-text-box {
+            flex-grow: 1;
+            transform-origin: left center;
+            transition: all 0.6s;
+        }
+
+        .slide-title {
+            font-size: 3.5rem;
+            color: var(--text-white);
+            margin: 0;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: color 0.6s;
+        }
+
+        .slide-desc {
+            color: var(--text-white);
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-top: 0.5rem;
+            opacity: 1;
+            transition: opacity 0.4s;
+            max-width: 250px;
+        }
+
+        /* --- STATES --- */
+
+        /* ACTIVE: Center, Full Size */
+        .carousel-item-custom.active {
+            opacity: 1;
+            z-index: 20;
+            transform: translateY(-50%) scale(1);
+            pointer-events: auto;
+        }
+
+        /* PREV: Top, Faded, Shifted Up */
+        .carousel-item-custom.prev {
+            opacity: 0.5; 
+            filter: blur(10px);
+            z-index: 10;
+            transform: translateY(-85%) scale(0.85); 
+        }
+        
+        .carousel-item-custom.prev .slide-title {
+            color: var(--text-faded); /* Fade title */
+        }
+        .carousel-item-custom.prev .slide-desc {
+            opacity: 0; /* Hide description */
+            height: 0;
+        }
+        .carousel-item-custom.prev .slide-image-box {
+             /* Overlap effect from reference: The previous card peeks from top */
+             transform: translateY(2em); 
+             opacity: 0.8;
+        }
+
+        /* NEXT: Bottom, Faded, Shifted Down */
+        .carousel-item-custom.next {
+            opacity: 0.5;
+            filter: blur(10px);
+            z-index: 10;
+            /* Move down significantly */
+            transform: translateY(10%) scale(0.85);
+        }
+        
+        .carousel-item-custom.next .slide-title {
+            color: var(--text-faded);
+        }
+        .carousel-item-custom.next .slide-desc {
+            opacity: 0;
+            height: 0;
+        }
+        .carousel-item-custom.next .slide-image-box {
+             transform: translateY(-40px);
+             opacity: 0.8;
+        }
+
+        /* Hidden Items */
+        .carousel-item-custom.hidden {
+            opacity: 0;
+            transform: translateY(100%) scale(0.5);
+            z-index: 1;
+        }
+
+        /* Logo Overlay on Image */
+        .logo-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            /* Simple placeholder for logo */
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .lines-section { padding: 2rem 0; flex-direction: column; }
+            .content-left { text-align: center; margin-bottom: 3rem; }
+            .main-title { font-size: 3.5rem; }
+            .carousel-wrapper { height: 500px; }
+            
+            .slide-image-box { width: 200px; height: 280px; }
+            .slide-title { font-size: 2.5rem; }
+            .slide-content { flex-direction: column; text-align: center; }
+            .slide-text-box { margin-left: 0; margin-top: 1rem; }
+            
+            /* Adjust Transforms for Mobile to prevent overlap issues */
+            .carousel-item-custom.prev { transform: translateY(-130%) scale(0.8); }
+            .carousel-item-custom.next { transform: translateY(30%) scale(0.8); }
+        }
