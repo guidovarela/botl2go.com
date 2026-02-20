@@ -104,6 +104,9 @@ body {
 }
 
 /* Hero Section */
+#inicio .row {
+    min-height: 90vh !important;
+}
 .hero-section {
     min-height: 100vh;
     background-color: var(--primary-bg);
@@ -235,7 +238,7 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    overflow: hidden;
+    /* overflow-y: hidden; */
 }
 
 #productLineSelector .btn.active {
@@ -253,7 +256,7 @@ body {
     animation: pulse 3s infinite;
 }
 #linesSection{
-    height: 70vh;
+    /* height: 70vh; */
     padding-bottom: 6em !important;
 }
 
@@ -281,10 +284,10 @@ body {
 
 /* Contact */
 .contactHead{
-    background: url("../img/Bottle_group_03_C.jpg");
-    background-size: cover;
+    background: url("../img/Bottle_group_03_D.png");
+    /* background-size: cover; */
     background-position: center;
-    height: 26vh;
+    height: 40vh;
 }
 
 /* Animations */
@@ -336,8 +339,26 @@ body {
         top: 15%;
         right: 5%;
     }
-    .hero-image {
-        left: -10%;
-        width: 100%;
+    #inicio .row {
+        min-height: auto !important;
     }
+    .hero-image {
+        left: -5%;
+        width: 95%;
+    }
+    .titleSection h3 {
+        font-size: 4em;
+    }
+
+    /* Lineas */
+    .glass-panel {
+        background: none;
+        }
+
+    /* Contacto  */
+    .contactHead{
+    /* background: url("../img/Bottle_group_03_B.jpg"); */
+    background-size: cover;
+    height: 12vh;
+}
 }

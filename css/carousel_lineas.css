@@ -1,7 +1,7 @@
         /* --- Vertical Carousel Styles --- */
         .carousel-wrapper {
             position: relative;
-            height: 60vh; /* Fixed height container */
+            height: 70vh; /* Fixed height container */
             width: 100%;
             display: flex;
             justify-content: center;
@@ -25,7 +25,7 @@
         .carousel-track {
             position: relative;
             width: 100%;
-            height: 100%;
+            /* height: 100%; */
             perspective: 1000px;
         }
 
@@ -169,16 +169,22 @@
         /* Responsive */
         @media (max-width: 991px) {
             .lines-section { padding: 2rem 0; flex-direction: column; }
+
+
             .content-left { text-align: center; margin-bottom: 3rem; }
             .main-title { font-size: 3.5rem; }
-            .carousel-wrapper { height: 500px; }
+            .carousel-wrapper { height: 50vh; }
+            .carousel-track {
+            top: 20%;
+            }
             
-            .slide-image-box { width: 200px; height: 280px; }
+            .slide-image-box { width: 50%; height: auto; }
             .slide-title { font-size: 2.5rem; }
             .slide-content { flex-direction: column; text-align: center; }
             .slide-text-box { margin-left: 0; margin-top: 1rem; }
             
             /* Adjust Transforms for Mobile to prevent overlap issues */
-            .carousel-item-custom.prev { transform: translateY(-130%) scale(0.8); }
-            .carousel-item-custom.next { transform: translateY(30%) scale(0.8); }
+            .carousel-item-custom.prev { transform: translateY(-80%) scale(0.8); }
+            .carousel-item-custom.next { transform: translateY(-30%) scale(0.8); }
+
         }

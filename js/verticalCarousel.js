@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'FLOWgo',
             desc1: 'Diseño fluido para hidratarte todo el día.',
             desc2: 'Pensadas para acompañar tu rutina diaria, donde estés.',
-            img: '../img/flowgo_01.png',
-            logo: '../img/logo_flowgo_white.png',
+            img: 'img/flowgo_01.png',
+            logo: 'img/logo_flowgo_white.png',
             icon: 'fas fa-wind'
         },
         {
@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'MINIgo',
             desc1: 'Más capacidad para seguir tu ritmo.',
             desc2: 'Ideales para jornadas largas, entrenamiento y movimiento continuo',
-            img: '../img/minigo_01.png', 
-            logo: '../img/logo_minigo_white.png',
+            img: 'img/minigo_01.png', 
+            logo: 'img/logo_minigo_white.png',
             icon: 'fas fa-compress'
         },
         {
@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'MAGgo',
             desc1: 'Momentos compartidos, sin descartables.',
             desc2: 'Vasos reutilizables para reuniones, encuentros y aire libre.',
-            img: '../img/maggo_01.png',
-            logo: '../img/logo_maggo_white.png', 
+            img: 'img/maggo_01.png',
+            logo: 'img/logo_maggo_white.png', 
             icon: 'fas fa-magnet'
         }
     ];
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             el.innerHTML = `
                 <div class="slide-content row">
-                    <div class="col-6 slide-image-box rounded">
+                    <div class="col-4 slide-image-box rounded">
                         <img src="${item.img}" alt="${item.title}" class="slide-img img-fluid">
                     </div>
-                    <div class="col-6 slide-text-box">
+                    <div class="col-8 slide-text-box">
                         <img src="${item.logo}" alt="${item.title}" class="slide-icon">
                             <h3 class="slide-title d-none">${item.title}</h3>
                         <p class="fs-4 fw-bold">${item.desc1}</p>
