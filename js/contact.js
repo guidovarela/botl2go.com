@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
       this
     )
     .then(() => {
-      alert("Mensaje enviado correctamente. Gracias!");
+      // alert("Mensaje enviado correctamente. Gracias!");
       form.reset(); // limpia el formulario
     }, (error) => {
       console.error("Error al enviar: ", error);
-      alert("Hubo un problema al enviar. Intentá de nuevo.");
+      alert("Hubo un problema al enviar el formulario. Escribinos a marketing@botl2go.com");
     });
   });
 });
