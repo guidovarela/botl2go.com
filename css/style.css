@@ -216,8 +216,6 @@ body {
 .flip-card-front {
     background-color: var(--dark-card-bg);
     color: white;
-    /* Border from image style */
-    border: 4px solid rgba(255,255,255,0.05);
 }
 
 .flip-card-back {
