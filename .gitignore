@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
+test
 sec_lineas_default.html
+sec_lineas_multiple.html
 img/render.png

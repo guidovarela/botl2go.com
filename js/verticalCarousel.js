@@ -1,13 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Data Source
-    const lines = [
+    // --- Vertical Carousel Logic ---
+    const linesData = [
         {
             id: 'flowgo',
             title: 'FLOWgo',
             desc1: 'Diseño fluido para hidratarte todo el día.',
             desc2: 'Pensadas para acompañar tu rutina diaria, donde estés.',
-            img: 'img/flowgo_01.png',
+            images: [
+                'img/flowgo_01.png',
+                'img/flowgo_02.png',
+                'img/flowgo_03.png',
+                'img/flowgo_04.png',
+                'img/flowgo_05.png',
+                'img/flowgo_06.png',
+                'img/flowgo_07.png',
+                'img/flowgo_08.png',
+            ], 
             logo: 'img/logo_flowgo_white.png',
             icon: 'fas fa-wind'
         },
@@ -16,7 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'MINIgo',
             desc1: 'Más capacidad para seguir tu ritmo.',
             desc2: 'Ideales para jornadas largas, entrenamiento y movimiento continuo',
-            img: 'img/minigo_01.png', 
+            images: [
+                'img/minigo_01.png',
+                'img/minigo_02.png',
+                'img/minigo_03.png'
+            ],
             logo: 'img/logo_minigo_white.png',
             icon: 'fas fa-compress'
         },
@@ -25,81 +38,118 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'MAGgo',
             desc1: 'Momentos compartidos, sin descartables.',
             desc2: 'Vasos reutilizables para reuniones, encuentros y aire libre.',
-            img: 'img/maggo_01.png',
+            images: [
+                'img/maggo_01.jpg',
+                'img/maggo_02.png',
+                'img/maggo_03.png',
+                'img/maggo_04.png',
+                'img/maggo_05.png',
+                'img/maggo_06.png',
+            ],
             logo: 'img/logo_maggo_white.png', 
             icon: 'fas fa-magnet'
         }
     ];
 
+    let currentIndex = 1; // Start with FlowGo (index 1) as active
+    let imageIndices = linesData.map(() => 0); // Track current image index for each line
     const track = document.getElementById('track');
-    let currentIndex = 1; // Start with the second item active (FlowGo style)
-
-    // 2. Initial Render
-    function renderItems() {
-        track.innerHTML = '';
-        lines.forEach((item, index) => {
+    
+    if(track) {
+        // Initial Render
+        linesData.forEach((item, index) => {
             const el = document.createElement('div');
-            el.classList.add('carousel-item-custom');
+            el.className = 'carousel-item-custom';
             el.dataset.index = index;
-
             el.innerHTML = `
-                <div class="slide-content row">
-                    <div class="col-4 slide-image-box rounded">
-                        <img src="${item.img}" alt="${item.title}" class="slide-img img-fluid">
+            <div class="slide-content row">
+
+                    <div class="col-md-8 slide-image-box ">
+                        <img src="${item.images[0]}" alt="${item.title}" class="slide-img img-fluid rounded" style="transition: opacity 0.5s ease;" >
                     </div>
-                    <div class="col-8 slide-text-box">
+                    <div class="col-md-4 slide-text-box">
                         <img src="${item.logo}" alt="${item.title}" class="slide-icon">
                             <h3 class="slide-title d-none">${item.title}</h3>
                         <p class="fs-4 fw-bold">${item.desc1}</p>
-                        <p class="fs-4">${item.desc2}</p>
+                        <p class="fs-5">${item.desc2}</p>
                     </div>
                 </div>
             `;
             track.appendChild(el);
         });
-        updateClasses();
-    }
 
-    // 3. Class Logic (Circular)
-    function updateClasses() {
         const items = document.querySelectorAll('.carousel-item-custom');
-        const total = lines.length;
 
-        items.forEach((item, index) => {
-            // Remove all state classes
-            item.classList.remove('active', 'prev', 'next', 'hidden');
+        function updateCarousel() {
+            items.forEach((item, i) => {
+                // Reset classes
+                item.className = 'carousel-item-custom';
+                
+                const len = linesData.length;
+                let diff = (i - currentIndex + len) % len;
+                
+                if (diff === 0) {
+                    item.classList.add('active');
+                } else if (diff === 1) {
+                    item.classList.add('next');
+                } else if (diff === len - 1) {
+                    item.classList.add('prev');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
 
-            // Calculate distance from current index
-            // handling wrap-around logic
-            let diff = (index - currentIndex + total) % total;
-
-            if (diff === 0) {
-                item.classList.add('active');
-            } else if (diff === 1) {
-                // The item immediately AFTER the current one (appears at bottom)
-                item.classList.add('next');
-            } else if (diff === total - 1) {
-                // The item immediately BEFORE the current one (appears at top)
-                item.classList.add('prev');
-            } else {
-                item.classList.add('hidden');
+        // Function to rotate images within the active slide
+        function rotateActiveImages() {
+            const activeItem = document.querySelector('.carousel-item-custom.active');
+            if (activeItem) {
+                const index = parseInt(activeItem.dataset.index);
+                const line = linesData[index];
+                if (line.images.length > 1) {
+                    imageIndices[index] = (imageIndices[index] + 1) % line.images.length;
+                    const img = activeItem.querySelector('.slide-img');
+                    img.style.opacity = 0;
+                    setTimeout(() => {
+                        img.src = line.images[imageIndices[index]];
+                        img.style.opacity = 1;
+                    }, 500);
+                }
             }
+        }
+
+        // Setup Buttons
+        document.getElementById('btnUp').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + linesData.length) % linesData.length;
+            updateCarousel();
+            resetAutoplay();
         });
+
+        document.getElementById('btnDown').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % linesData.length;
+            updateCarousel();
+            resetAutoplay();
+        });
+
+        // Autoplay logic
+        let mainAutoplay = setInterval(() => {
+            currentIndex = (currentIndex + 1) % linesData.length;
+            updateCarousel();
+        }, 60000);
+
+        let imageAutoplay = setInterval(() => {
+            rotateActiveImages();
+        }, 3000);
+
+        function resetAutoplay() {
+            clearInterval(mainAutoplay);
+            mainAutoplay = setInterval(() => {
+                currentIndex = (currentIndex + 1) % linesData.length;
+                updateCarousel();
+            }, 60000);
+        }
+
+        // Initialize positions
+        updateCarousel();
     }
-
-    // 4. Events
-    document.getElementById('btnUp').addEventListener('click', () => {
-        // Moving "Up" visually means showing the previous item as active
-        currentIndex = (currentIndex - 1 + lines.length) % lines.length;
-        updateClasses();
-    });
-
-    document.getElementById('btnDown').addEventListener('click', () => {
-        // Moving "Down" visually means showing the next item as active
-        currentIndex = (currentIndex + 1) % lines.length;
-        updateClasses();
-    });
-
-    // Initialize
-    renderItems();
 });

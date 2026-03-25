@@ -245,6 +245,9 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transform: scale(1.05);
 }
+.slide-icon{
+    width: 50%;
+}
 
 .content-item {
     animation: fadeIn 0.5s ease-in-out;
@@ -351,6 +354,8 @@ body {
     /* Lineas */
     .glass-panel {
         background: none;
+        border: none;
+        /* overflow-y: hidden; */
         }
 
     /* Contacto  */
