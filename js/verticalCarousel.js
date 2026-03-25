@@ -2,25 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // --- Vertical Carousel Logic ---
     const linesData = [
-        {
-            id: 'flowgo',
-            title: 'FLOWgo',
-            desc1: 'Diseño fluido para hidratarte todo el día.',
-            desc2: 'Pensadas para acompañar tu rutina diaria, donde estés.',
-            images: [
-                'img/flowgo_01.png',
-                'img/flowgo_02.png',
-                'img/flowgo_03.png',
-                'img/flowgo_04.png',
-                'img/flowgo_05.png',
-                'img/flowgo_06.png',
-                'img/flowgo_07.png',
-                'img/flowgo_08.png',
-            ], 
-            logo: 'img/logo_flowgo_white.png',
-            icon: 'fas fa-wind'
-        },
-        {
+                {
             id: 'minigo',
             title: 'MINIgo',
             desc1: 'Más capacidad para seguir tu ritmo.',
@@ -48,7 +30,26 @@ document.addEventListener('DOMContentLoaded', function() {
             ],
             logo: 'img/logo_maggo_white.png', 
             icon: 'fas fa-magnet'
-        }
+        },
+        {
+            id: 'flowgo',
+            title: 'FLOWgo',
+            desc1: 'Diseño fluido para hidratarte todo el día.',
+            desc2: 'Pensadas para acompañar tu rutina diaria, donde estés.',
+            images: [
+                'img/flowgo_01.png',
+                'img/flowgo_02.png',
+                'img/flowgo_03.png',
+                'img/flowgo_04.png',
+                'img/flowgo_05.png',
+                'img/flowgo_06.png',
+                'img/flowgo_07.png',
+                'img/flowgo_08.png',
+            ], 
+            logo: 'img/logo_flowgo_white.png',
+            icon: 'fas fa-wind'
+        },
+
     ];
 
     let currentIndex = 1; // Start with FlowGo (index 1) as active
